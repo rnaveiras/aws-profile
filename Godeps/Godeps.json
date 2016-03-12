@@ -1,0 +1,29 @@
+{
+	"ImportPath": "github.com/rnaveiras/aws-profile",
+	"GoVersion": "go1.6",
+	"Deps": [
+		{
+			"ImportPath": "github.com/aws/aws-sdk-go/aws/awserr",
+			"Comment": "v1.1.8-5-g6b5f7cd",
+			"Rev": "6b5f7cd0bac07e029ea9b05fa8e701ed75759288"
+		},
+		{
+			"ImportPath": "github.com/aws/aws-sdk-go/aws/credentials",
+			"Comment": "v1.1.8-5-g6b5f7cd",
+			"Rev": "6b5f7cd0bac07e029ea9b05fa8e701ed75759288"
+		},
+		{
+			"ImportPath": "github.com/go-ini/ini",
+			"Comment": "v1.8.6",
+			"Rev": "afbd495e5aaea13597b5e14fe514ddeaa4d76fc3"
+		},
+		{
+			"ImportPath": "github.com/spf13/cobra",
+			"Rev": "65a708cee0a4424f4e353d031ce440643e312f92"
+		},
+		{
+			"ImportPath": "github.com/spf13/pflag",
+			"Rev": "7f60f83a2c81bc3c3c0d5297f61ddfa68da9d3b7"
+		}
+	]
+}
