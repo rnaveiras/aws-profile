@@ -9,10 +9,9 @@ import (
 )
 
 func main() {
-
-	var envCmd = &cobra.Command{
+	envCmd := &cobra.Command{
 		Use:   "env",
-		Short: "export AWS_ variables from a AWS_PROFILE",
+		Short: "export AWS variables from an AWS_PROFILE",
 		Run: func(cmd *cobra.Command, args []string) {
 			if os.Getenv("AWS_PROFILE") != "" {
 				profile := os.Getenv("AWS_PROFILE")
@@ -20,19 +19,19 @@ func main() {
 				credsValue, err := credentials.NewSharedCredentials("", profile).Get()
 
 				if err != nil {
-					panic("oops")
+					fmt.Printf("No exported. Review your AWS credentials for %s", profile)
+					os.Exit(1)
 				}
 
 				fmt.Printf("export AWS_ACCESS_KEY_ID=%s\n", credsValue.AccessKeyID)
 				fmt.Printf("export AWS_SECRET_ACCESS_KEY=%s\n", credsValue.SecretAccessKey)
 
-				fmt.Printf("# Run this command to configure your shell:\n")
+				fmt.Printf("# Run this command to set the variables:\n")
 				fmt.Printf("eval $(aws-profile env)\n")
 			}
 		},
 	}
-
-	var unenvCmd = &cobra.Command{
+	unenvCmd := &cobra.Command{
 		Use:   "unenv",
 		Short: "unset AWS variables",
 		Run: func(cmd *cobra.Command, args []string) {
@@ -40,16 +39,16 @@ func main() {
 			fmt.Printf("unset AWS_SECRET_ACCESS_KEY\n")
 			fmt.Printf("unset AWS_PROFILE\n")
 
-			fmt.Printf("# Run this command to configure your shell:\n")
+			fmt.Printf("# Run this command to unset the variables:\n")
 			fmt.Printf("eval $(aws-profile unenv)\n")
 		},
 	}
 
-	var rootCmd = &cobra.Command{Use: "aws-profile"}
+	rootCmd := &cobra.Command{Use: "aws-profile"}
 	rootCmd.AddCommand(envCmd, unenvCmd)
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
-		os.Exit(-1)
+		os.Exit(1)
 	}
 }
