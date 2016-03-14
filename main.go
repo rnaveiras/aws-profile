@@ -19,7 +19,7 @@ func main() {
 				credsValue, err := credentials.NewSharedCredentials("", profile).Get()
 
 				if err != nil {
-					fmt.Printf("No exported. Review your AWS credentials for %s", profile)
+					fmt.Printf("No exported. Review your AWS credentials for %s\n", profile)
 					os.Exit(1)
 				}
 
@@ -27,7 +27,7 @@ func main() {
 				fmt.Printf("export AWS_SECRET_ACCESS_KEY=%s\n", credsValue.SecretAccessKey)
 
 				fmt.Printf("# Run this command to set the variables:\n")
-				fmt.Printf("eval $(aws-profile env)\n")
+				fmt.Printf("# eval $(aws-profile env)\n")
 			}
 		},
 	}
