@@ -1,9 +1,9 @@
 # aws-profile
 
-Tired to use software that need `AWS_` variables but doesn't support AWS profiles. Here a simple and dirty hack that will save you a few types.
+Tired of using software that need `AWS_` variables but doesn't support AWS profiles. Here a simple and dirty hack that will save you a few keystrokes.
 
-Ensure that you shell is properly config and exist a exported profile that you want to use e.g. `export AWS_PROFILE=wadus`
-Then just simple `eval $(aws-profile env)` will set `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
+Make sure your shell is properly configured and the profile you want to use exists and is exported. e.g. `export AWS_PROFILE=wadus`
+Then just run `eval $(aws-profile env)` and it will set `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
 
 ## Usage
 
