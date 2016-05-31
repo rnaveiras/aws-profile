@@ -1,0 +1,10 @@
+build:
+  image: golang
+  commands:
+    - go get
+    - go build
+    - go test
+
+compose:
+  cache:
+    image: redis
